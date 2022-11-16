@@ -1,0 +1,27 @@
+{
+  "name": "confab",
+  "version": "1.0.0",
+  "description": "A simple voice and chat service that is easily deployable.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "nodemon index.js"
+  },
+  "keywords": [
+    "socket",
+    "express",
+    "chat",
+    "voice",
+    "node",
+    "javascript"
+  ],
+  "author": "Travis Block, Storm Crozier",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pug": "^3.0.2",
+    "react-dom": "^18.2.0",
+    "sanitize-html": "^2.7.3",
+    "socket.io": "^4.5.3"
+  }
+}
