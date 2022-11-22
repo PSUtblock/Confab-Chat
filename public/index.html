@@ -2,73 +2,34 @@
 <html>
   <head>
     <title>Confab.social</title>
-    <style>
-      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-
-      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
-      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
-      #input:focus { outline: none; }
-      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
-
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages > li { padding: 0.5rem 1rem; }
-      #messages > li:nth-child(odd) { background: #efefef; }
-
-      #typeMessage { visibility: hidden; opacity: 0; background-color: aquamarine; transition: visibility 1s, opacity 1s linear;}
-    </style>
+    <link rel="stylesheet" href="/style/styles.css">
   </head>
   <body>
-    <div id="typeMessage"><p>A user is typing...</p></div>
-    <div id="messages"></div>
-    <form id="form" action="">
-        <input id="input" autocomplete="off" /><button>Send</button>
-    </form>
+    <header>
+      <div class="siteheader">
+      <img src="/images/confab_logo.png">
+      <h1>Confab.Social</h1>
+      <ul>
+        <li>About</li>
+        <li>Donate</li>
+        <li>How To</li>
+      </ul>
+    </div>
+        <div id="userLogin"><p>[User Name]</p><p>logout</p></div>
+    </header>
+    <div id="chatApp" class="window">
+      <div id="chatAppheader"><h2>Chat Application</h2><button class="closeButton">✕</button></div>
+      <div id="systemMessages"><p>Welcome!</p></div>
+      <div id="chatBox"></div>
+      <div id="userEntry">
+        <form id="form" action="">
+        <input id="input" autocomplete="off" maxlength="250" /><button>Submit</button>
+        </form>
+      </div>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
-  <script>
-  var socket = io();
-
-    var messages = document.getElementById('messages');
-    var form = document.getElementById('form');
-    var input = document.getElementById('input');
-    let tid = 0;
-    
-    const checkTyping = () => {
-      socket.emit('hidebox');
-      
-    }
-    
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (input.value) {
-        socket.emit('chat message', input.value);
-        input.value = '';
-      }
-    });
-    
-    input.addEventListener('input', function(e) {
-      e.preventDefault();
-      clearTimeout(tid);
-      socket.emit('typing');
-      tid = setTimeout(checkTyping,1000);
-    });
-    
-    socket.on('chat message', function(msg) {
-      var item = document.createElement('div');
-      item.innerHTML = msg;
-      messages.appendChild(item);
-      window.scrollTo(0, document.body.scrollHeight);
-    });
-    
-    socket.on('typing', function() {
-      let type = document.getElementById("typeMessage");
-          type.style.visibility = "visible";
-          type.style.opacity = 1;
-    });
-    
-    socket.on('hidebox', function() {
-      let type = document.getElementById("typeMessage");
-          type.style.visibility = "hidden";
-          type.style.opacity = 0;
-    });</script> 
+    <script src="/js/draggable.js"></script>
+    <script src="/js/socketFunctions.js"></script> 
+ 
 </body>
 </html>

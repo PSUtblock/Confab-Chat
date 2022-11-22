@@ -4,10 +4,11 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
-
-const chatFunc = require('./private/chatTemplates/chatFunctions' )
+const chatFunc = require('./private/chatFunctions' )
 
 const port = process.env.PORT || 5002;
+
+app.use(express.static('public'));
 
 app.use('/', (req, res) => {
   res.sendFile("index.html",{"root":"public"});
