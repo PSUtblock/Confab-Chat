@@ -10,6 +10,7 @@
       <img src="/images/confab_logo.png">
       <h1>Confab.Social</h1>
       <ul>
+        <button type='button' id="joinVoice" onclick="joinRoom()">Join Voice</button>
         <li>About</li>
         <li>Donate</li>
         <li>How To</li>
@@ -17,6 +18,11 @@
     </div>
         <div id="userLogin"><p>[User Name]</p><p>logout</p></div>
     </header>
+    <div class="popup">
+      <h2>Enter User Name</h2>
+      <input type="text" name="userName" id="userName" />
+      <input type="submit" name="submit" value="Submit" id="close" />
+    </div>
     <div id="chatApp" class="window">
       <div id="chatAppheader"><h2>Chat Application</h2><button class="closeButton">✕</button></div>
       <div id="systemMessages"><p>Welcome!</p></div>
@@ -27,9 +33,17 @@
         </form>
       </div>
     </div>
+    <div id="voiceApp" class="window" style="display: none;">
+      <div id="chatAppheader"><h2>Voice Chat</h2><button class="closeButton" onclick="leaveRoom()">✕</button></div>
+      <audio id="onJoin" src="/public/sounds/Utopia Default.mp3"></audio>
+      <div id="systemMessages"><marquee>Welcome!</marquee></div>
+      <ul id="inVoice"></ul>
+      <button id="muteBut" onclick="muteMyAudio()">Mute</button>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
     <script src="/js/draggable.js"></script>
     <script src="/js/socketFunctions.js"></script> 
- 
+    <script src="/js/voice.js"></script>
 </body>
 </html>

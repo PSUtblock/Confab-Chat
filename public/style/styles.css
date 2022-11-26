@@ -75,6 +75,22 @@ h1, h2 {
     background-color:aquamarine;
 }
 
+
+#voiceApp {
+    border-style: ridge;
+    transform: translate(-50%,-50%);
+    left: 84.8%;
+    top: 36%;
+    border-width: 2px;
+    height: 300;
+    width: 200;
+    resize: both;
+    overflow: auto;
+    position: absolute;
+    z-index: 9;
+    background-color:aquamarine;
+}
+
 #chatAppheader {
     display:flex;
     justify-content: space-between;
@@ -120,8 +136,62 @@ h1, h2 {
     
 }
 
+#inVoice{
+    min-height: 300px;
+    min-width: 200px;
+    max-width: 400px;
+    max-height: 600px;
+    font-size: 11px;
+    padding: 10px;
+    background-color:aquamarine;
+    
+}
+
+.inVoice{
+    font-size: 15px;
+    padding: 2px;
+    max-height: 5px; 
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+
 #userLogin {
     display: flex;
     justify-content: space-between;
     gap: 15px;
+}
+
+.popup{
+    background-color: #ffffff;
+    width: 420px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+  }
+
+  #userName{
+    margin-top: 10px;
+  }
+
+  #muteBut {
+    border: none;
+    margin-bottom: 5px;
+    background-color: red;
+    color: whitesmoke;
+    font-style: italic;
+    position: relative;
+    left: 40%;
+}
+
+#userInVoice {
+    font-size: 13px;
+    margin: 0;
+    line-height: 0;
+    display: inline-block;
 }

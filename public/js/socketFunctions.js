@@ -45,3 +45,23 @@ var socket = io();
             type.style.visibility = "hidden";
             type.style.opacity = 0;
       });
+      /*
+      socket.on('join-room', (roomId, peerId) => {
+        console.log(peerId);
+        socket.join(roomId);
+      });
+      socket.on('leave-room', (roomId, peerId) => {
+        socket.leave(roomId);
+      });
+      socket.on('user-left', (roomId, peerId) => {
+        //socket.broadcast.to(roomId).emit('user-left', peerId);
+        console.log(roomId);
+        console.log(peerId);
+        console.log(socket);
+        io.to(roomId).emit('user-left', peerId);
+      });
+      socket.on('connection-request', (roomId, peerId) => {
+        //socket.broadcast.to(roomId).emit('new-user-connected', peerId);
+        io.to(roomId).emit('new-user-connected', peerId);
+      });
+      */
