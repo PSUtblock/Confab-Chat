@@ -4,6 +4,8 @@
  * to perform various functions like making links, image links, help commands etc..
  */
 
+
+
 const parseMessage = (message) => {
     let modMessage = "";
     if(!(message.includes("http://") || message.includes("https://"))) {
@@ -35,7 +37,7 @@ const parseMessage = (message) => {
     }
    
         }
-            return modMessage.replace(/(<([^>]+)>)/gi, "");
+            return modMessage;
         };
 
 const genLink = (link) => {
