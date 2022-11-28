@@ -22,7 +22,6 @@ window.addEventListener("load", function () {
 document.querySelector("#close").addEventListener("click", function () {
   document.querySelector(".popup").style.display = "none";
   myNickName = document.getElementById("userName").value;
-  //socket.emit("new user", nickName, peerId);
 });
 
 const joinRoom = () => {
@@ -83,6 +82,7 @@ const leaveRoom = () => {
     });
     */
   removeUnusedDivs();
+  myAudio.muted = true;
   myAudio.srcObject = null;
 };
 
@@ -121,7 +121,6 @@ const connectNewUser = (userId, nickName, stream) => {
 };
 
 const addAudioStream = (audio, nickName, id, stream) => {
-  //const li = document.createElement('li');
   const div = document.createElement('div');
   const name = document.createElement('h1');
   div.className = 'inVoice';
@@ -152,17 +151,29 @@ const removeUnusedDivs = () => {
 const muteMyAudio = () => {
   const audi = myStream.getAudioTracks();
   audi[0].enabled = !audi[0].enabled;
+  const mydiv = document.getElementById('myAudio');
+  const myName = mydiv.querySelector('h1');
+  console.log(audi.enabled);
+  if(audi[0].enabled)
+    myName.style.color = 'black';
+  else 
+    myName.style.color = 'red';
 }
 
 const muteThierAudio = (e) => {
   const div = e.target.parentElement;
   const toMute = div.querySelector('audio');
+  const toChange = div.querySelector('h1');
   toMute.muted = !toMute.muted
+  if(toMute.muted)
+    toChange.style.color = 'red';
+  else
+    toChange.style.color = 'black';
 }
-
 
 const addMuteButton = () => {
   const but = document.createElement('button');
+  but.setAttribute('type', 'button');
   but.textContent = 'Mute';
   but.addEventListener('click', muteThierAudio);
   return but;
