@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style/windowstyles/usersapp.css"/>
     <link rel="stylesheet" href="./style/windowstyles/doomapp.css"/>
     <link rel="stylesheet" href="./style/windowstyles/otapp.css"/>
+    <link rel="stylesheet" href="./style/windowstyles/voiceapp.css"/>
   </head>
   <body>
     <header class="osheader">
@@ -42,7 +43,7 @@
         <img src="./images/icons/chaticon.png" />
         <p>User Chat</p>
       </div>
-      <div id= "voiceApp" class="shortcut">
+      <div id= "voiceApp" class="shortcut" ondblclick="joinRoom()">
         <img src="./images/icons/voice.png" />
         <p>Voice Call</p>
       </div>
@@ -80,10 +81,10 @@
       <div id="otheader"><h2>The Oregon Trail</h2><button id="closeot" class="closeButton">✕</button></div>
     </div>
     </div>
-    <div id="voiceApp" class="window" style="display: none;">
-      <div id="chatAppheader"><h2>Voice Chat</h2><button class="closeButton" onclick="leaveRoom()">✕</button></div>
+    <div id="voice">
+      <div id="voiceHeader"><h2>Voice Chat</h2><button id="closeVoice" onclick="leaveRoom()">✕</button></div>
       <audio id="onJoin" src="/public/sounds/Utopia Default.mp3"></audio>
-      <div id="systemMessages"><marquee>Welcome!</marquee></div>
+      <div id="systemMessagesChat"><marquee>Welcome!</marquee></div>
       <ul id="inVoice"></ul>
       <button id="muteBut" onclick="muteMyAudio()">Mute</button>
     </div>
