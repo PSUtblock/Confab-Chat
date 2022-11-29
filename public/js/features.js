@@ -96,6 +96,14 @@ document.getElementById("chatApp").addEventListener("dblclick", () => {
 document.getElementById("closechat").addEventListener("click", () => {
   hideapp("chat");
 });
+document.getElementById("voiceApp").addEventListener("dblclick", () => {
+  unhideapp("voice");
+  unhideapp('systemMessagesChat');
+});
+document.getElementById("closeVoice").addEventListener("click", () => {
+  hideapp('voice');
+  hideapp('systemMessagesChat');
+});
 document.getElementById("usersApp").addEventListener("dblclick", () => {
   unhideapp("users");
 });
