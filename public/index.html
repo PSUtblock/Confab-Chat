@@ -2,34 +2,82 @@
 <html>
   <head>
     <title>Confab.social</title>
-    <link rel="stylesheet" href="/style/styles.css">
+    <link rel="stylesheet" href="./style/styles.css" />
+    <link rel="stylesheet" href="./style/windowstyles/chatapp.css"/>
+    <link rel="stylesheet" href="./style/windowstyles/usersapp.css"/>
+    <link rel="stylesheet" href="./style/windowstyles/doomapp.css"/>
+    <link rel="stylesheet" href="./style/windowstyles/otapp.css"/>
   </head>
   <body>
-    <header>
-      <div class="siteheader">
-      <img src="/images/confab_logo.png">
-      <h1>Confab.Social</h1>
-      <ul>
-        <li>About</li>
-        <li>Donate</li>
-        <li>How To</li>
-      </ul>
-    </div>
-        <div id="userLogin"><p>[User Name]</p><p>logout</p></div>
+    <header class="osheader">
+      <div class="sitetitle">
+        <img class="headerLogo" src="./images/confab_logo.png" />
+        <h1>Confab.Social</h1>
+        <nav>
+          <ul>
+            <li><a class="underline">About</a></li>
+            <li><a class="underline">Donate</a></a></li>
+            <li><a class="underline">How To</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="userlogin">
+        <input id="username" autocomplete="off" type="text" />
+        <button id="loginbutton">Connect</button>
+      </div>
+      <div id="systeminfo">
+        <a id="fullscreen" class="underline">Fullscreen</a>
+        <p id="systime"></p>
+        <p id="sysdate"></p>
+      </div>
     </header>
-    <div id="chatApp" class="window">
-      <div id="chatAppheader"><h2>Chat Application</h2><button class="closeButton">✕</button></div>
+    <a>
+    <div class="desktop">
+      <div id= "chatApp" class="shortcut">
+        <img src="./images/icons/chaticon.png" />
+        <p>User Chat</p>
+      </div>
+      <div id= "voiceApp" class="shortcut">
+        <img src="./images/icons/voice.png" />
+        <p>Voice Call</p>
+      </div>
+      <div id= "usersApp" class="shortcut">
+        <img src="./images/icons/users.png" />
+        <p>Online Users</p>
+      </div>
+      <div id= "doomApp" class="shortcut">
+        <img src="./images/icons/doomicon.png" />
+        <p>DOOM</p>
+      </div>
+      <div id= "otApp" class="shortcut">
+        <img src="./images/icons/msdosicon.png" />
+        <p>The Oregon Trail</p>
+      </div>
+    </div>
+    <div id="chat">
+      <div id="chatheader"><h2>Chat Application</h2><button id="closechat" class="closeButton">✕</button></div>
       <div id="systemMessages"><p>Welcome!</p></div>
       <div id="chatBox"></div>
       <div id="userEntry">
         <form id="form" action="">
-        <input id="input" autocomplete="off" maxlength="250" /><button>Submit</button>
+        <input id="chatinput" autocomplete="off" maxlength="250"/><button>Submit</button>
         </form>
       </div>
+      </div>
+    <div id="users">
+      <div id="usersheader"><h2>Active Users</h2><button id="closeusers" class="closeButton">✕</button></div>
+      <div id="userslist"></div>
+    </div>
+    <div id="doom">
+      <div id="doomheader"><h2>DOOM</h2><button id="closedoom" class="closeButton">✕</button></div>
+    </div>
+    <div id="ot">
+      <div id="otheader"><h2>The Oregon Trail</h2><button id="closeot" class="closeButton">✕</button></div>
+    </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/draggable.js"></script>
-    <script src="/js/socketFunctions.js"></script> 
- 
-</body>
+    <script src="/js/socketFunctions.js"></script>
+    <script src="js/features.js"></script>
+  </body>
 </html>
