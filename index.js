@@ -1,18 +1,20 @@
-const express = require('express');
+const express = require("express");
+
 const app = express();
-const http = require('http');
+const http = require("http");
+
 const server = http.createServer(app);
 const { Server } = require("socket.io");
+
 const io = new Server(server);
-const chatFunc = require('./private/chatFunctions' )
-const inVoice = [];
+const chatFunc = require("./private/chatFunctions");
 
-const port = process.env.PORT || 5002;
+const port = server.port || 5002;
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-app.use('/', (req, res) => {
-  res.sendFile("index.html",{"root":"public"});
+app.use("/", (req, res) => {
+  res.sendFile("index.html", { root: "public" });
 });
 
 io.on('connection', (socket) => {
@@ -31,13 +33,17 @@ io.on('connection', (socket) => {
     });
     socket.on('join-room', (roomId, peerId, myNickName) => {
       socket.join(roomId);
+      /*
       inVoice.push({id: peerId, nickName: myNickName})
       console.log(inVoice);
+      */
     });
     socket.on('leave-room', (roomId, peerId) => {
       socket.leave(roomId);
+      /*
       const index = inVoice.findIndex(x => x.id === peerId);
       inVoice.splice(index, 1);
+      */
     });
     socket.on('connection-request', (roomId, peerId, nickName) => {
       socket.broadcast.to(roomId).emit('new-user-connected', peerId, nickName);
@@ -48,7 +54,8 @@ io.on('connection', (socket) => {
     socket.on('give-nick', (roomId, nickName) => {
       socket.broadcast.to(roomId).emit('give-nick', nickName);
     });
-  });
+});
+  
 
 server.listen(port, () => {
   console.log(`Socket.IO server running at http://localhost:${port}`);

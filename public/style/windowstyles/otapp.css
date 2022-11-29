@@ -1,0 +1,29 @@
+@import "../styles.css";
+
+#ot {
+  visibility: hidden;
+  border-style: ridge;
+  border-width: 2px;
+  min-height: 400;
+  min-width: 680;
+  resize: both;
+  overflow: auto;
+  position: absolute;
+  background-color: var(--app-window-bk);
+
+  top: 150px;
+  left: 500px;
+}
+
+#otheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  cursor: grab;
+  color: black;
+  border-bottom-style: ridge;
+  border-bottom-width: 2px;
+  background-color: var(--app-accessory);
+  height: 10px;
+}

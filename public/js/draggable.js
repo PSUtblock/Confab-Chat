@@ -1,12 +1,20 @@
-// Make the DIV element draggable:
-dragElement(document.getElementById("chatApp"));
-dragElement(document.getElementById('voiceApp'))
+/* Draggable Function From W3Schools draggable div tutorial */
+// Link to source: https://www.w3schools.com/howto/howto_js_draggable.asp
+
+// To use this function for an added app, the application but have specific ids so
+// it can be referenced. Be sure to make additional style sheets separate from the
+// sites general style sheet in order to keep things organized.
+// you MUST reference an id at this time.
 
 function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
+  let pos1 = 0;
+  let pos2 = 0;
+  let pos3 = 0;
+  let pos4 = 0;
+
+  if (document.getElementById(`${elmnt.id}header`)) {
     // if present, the header is where you move the DIV from:
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    document.getElementById(`${elmnt.id}header`).onmousedown = dragMouseDown;
   } else {
     // otherwise, move the DIV from anywhere inside the DIV:
     elmnt.onmousedown = dragMouseDown;
@@ -32,8 +40,8 @@ function dragElement(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    elmnt.style.top = `${elmnt.offsetTop - pos2}px`;
+    elmnt.style.left = `${elmnt.offsetLeft - pos1}px`;
   }
 
   function closeDragElement() {
@@ -42,3 +50,11 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
+// With every new application added, you must call the function to search for
+// its id.
+dragElement(document.getElementById("chat"));
+dragElement(document.getElementById("users"));
+dragElement(document.getElementById("voice"));
+dragElement(document.getElementById("DOOM"));
+dragElement(document.getElementById("oregon"));

@@ -1,0 +1,37 @@
+@import "../styles.css";
+
+#users {
+  visibility: hidden;
+  border-style: ridge;
+  border-width: 2px;
+  min-height: 400;
+  min-width: 400;
+  resize: both;
+  overflow: auto;
+  position: absolute;
+  background-color: var(--app-window-bk);
+
+  top: 150px;
+  left: 500px;
+}
+
+#usersheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  cursor: grab;
+  color: black;
+  border-bottom-style: ridge;
+  border-bottom-width: 2px;
+  background-color: var(--app-accessory);
+  height: 10px;
+}
+
+#userslist {
+  margin: auto;
+  min-width: 200px;
+  min-height: 400px;
+  overflow-y: scroll;
+  font-size: 12px;
+}
