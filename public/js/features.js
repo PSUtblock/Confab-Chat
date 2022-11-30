@@ -12,6 +12,8 @@ const doomlink =
 const otlink =
   "https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F5%2F53e616496b4da1d95136e235ad90c9cc3f3f760d.jsdos?anonymous=1";
 
+// clock function that sets the time at the upper right of the desktop.
+// affects the year and sends you back to 1998 (at this time) to go with the vibe of the application
 const clock = () => {
   const date = new Date();
   let hours = date.getHours();
@@ -67,16 +69,22 @@ const hideapp = (id) => {
   document.getElementById(id).style.visibility = "hidden";
 };
 
+// these functions are used to hide and unhide games. They need to be
+// created and deleted on reveal since their sound will still play if hidden or not being displayed.
 const unhidegame = (id) => {
   const game = document.getElementById(id);
   const gamewindow = document.createElement("iframe");
   gamewindow.width = 680;
   gamewindow.height = 400;
   gamewindow.frameborder = 0;
-  if (id === "doom") gamewindow.src = doomlink;
-  gamewindow.id = "doomgame";
-  if (id === "ot") gamewindow.src = otlink;
-  gamewindow.id = "otgame";
+  if (id === "doom") {
+    gamewindow.src = doomlink;
+    gamewindow.id = "doomgame";
+  }
+  if (id === "ot") {
+    gamewindow.src = otlink;
+    gamewindow.id = "otgame";
+  }
   gamewindow.setAttribute("allowFullScreen", "");
   game.append(gamewindow);
   game.style.visibility = "visible";
@@ -85,11 +93,17 @@ const unhidegame = (id) => {
 const hidegame = (id) => {
   const game = document.getElementById(id);
   game.style.visibility = "hidden";
-  if (id == "doom") document.getElementById("doomgame").remove();
-  if (id == "ot") document.getElementById("otgame").remove();
+  if (id === "doom") document.getElementById("doomgame").remove();
+  if (id === "ot") document.getElementById("otgame").remove();
 };
 
-// These listeners hide and unhide the applications
+// These listeners hide and unhide the applications and games
+document.getElementById("aboutApp").addEventListener("click", () => {
+  unhideapp("about");
+});
+document.getElementById("closeabout").addEventListener("click", () => {
+  hideapp("about");
+});
 document.getElementById("chatApp").addEventListener("dblclick", () => {
   unhideapp("chat");
 });
@@ -98,11 +112,11 @@ document.getElementById("closechat").addEventListener("click", () => {
 });
 document.getElementById("voiceApp").addEventListener("dblclick", () => {
   unhideapp("voice");
-  unhideapp('systemMessagesChat');
+  unhideapp("systemMessagesChat");
 });
 document.getElementById("closeVoice").addEventListener("click", () => {
-  hideapp('voice');
-  hideapp('systemMessagesChat');
+  hideapp("voice");
+  hideapp("systemMessagesChat");
 });
 document.getElementById("usersApp").addEventListener("dblclick", () => {
   unhideapp("users");

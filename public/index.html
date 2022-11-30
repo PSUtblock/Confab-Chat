@@ -8,36 +8,30 @@
     <link rel="stylesheet" href="./style/windowstyles/doomapp.css"/>
     <link rel="stylesheet" href="./style/windowstyles/otapp.css"/>
     <link rel="stylesheet" href="./style/windowstyles/voiceapp.css"/>
+    <link rel="stylesheet" href="./style/windowstyles/aboutapp.css"/>
   </head>
   <body>
+    <img id="splash" src="./images/confabsplashdithered.png"/>
     <header class="osheader">
       <div class="sitetitle">
         <img class="headerLogo" src="./images/confab_logo.png" />
         <h1>Confab.Social</h1>
         <nav>
           <ul>
-            <li><a class="underline">About</a></li>
-            <li><a class="underline">Donate</a></a></li>
-            <li><a class="underline">How To</a></li>
+            <li><a id="aboutApp" class="underline">About</a></li>
           </ul>
         </nav>
       </div>
-      <div id="userlogin">
-        <input id="username" autocomplete="off" type="text" />
-        <button id="loginbutton">Connect</button>
-      </div>
-      <div class="popup">
+      <div class="popup window">
         <h2>Enter User Name</h2>
-        <input type="text" name="userName" id="userName" />
-        <input type="submit" name="submit" value="Submit" id="close" />
+        <input type="text" name="userName" id="userName" required placeholder="Enter an Alias" oninvalid="Sorry"/>
+        <input type="submit" name="submit" value="Submit" id="close" class="namesubmit" />
       </div>
       <div id="systeminfo">
-        <a id="fullscreen" class="underline">Fullscreen</a>
         <p id="systime"></p>
         <p id="sysdate"></p>
       </div>
     </header>
-    <a>
     <div class="desktop">
       <div id= "chatApp" class="shortcut">
         <img src="./images/icons/chaticon.png" />
@@ -83,16 +77,62 @@
     </div>
     <div id="voice">
       <div id="voiceHeader"><h2>Voice Chat</h2><button id="closeVoice" onclick="leaveRoom()">✕</button></div>
-      <audio id="onJoin" src="/public/sounds/Utopia Default.mp3"></audio>
       <div id="systemMessagesChat"><marquee>Welcome!</marquee></div>
       <ul id="inVoice"></ul>
-      <button id="muteBut" onclick="muteMyAudio()">Mute</button>
+      <div id="voicecontrols"> 
+        <button id="muteBut" onclick="muteMyAudio()">Mute</button>
+      </div>
+      
+    </div>
+    <div id="about">
+      <div id="aboutheader"><h2>About</h2><button id="closeabout" class="closeButton">✕</button></h2></div>
+      <div id="aboutbody"><h3>About The Application</h3>
+      <p>This application was made by Storm Crozier and Travis Block For Fall 2022 Full-Stack Class at Portland State University.</p>
+    <p>The goal of the project was to build a web application using socket.io. 
+      the word 'Confab' is defined as: "an informal private conversation or discussion". 
+      So, in this instance the application envisioned was a chat and voice application for 
+      friends to connect and talk privately. So long as a user has the know-how to launch an instance of this, 
+      they and their friends can talk amongst themselves privately without worry.</p>
+      <p>The style of the site is to provide a 'vintage' operating system look where modern styling practices
+        are to a degree ignored. Looking back in a sense to this design is a sort of rebellion to what many cookie cutter themed
+        sites of the modern era that concede to using generic templates. Somehow, the bland styles of the past have more character
+        have more character than the future.
+      </p>
+    <h3>Tools and Modules Used</h3>
+    <ul>
+      <li>Javascript</li>
+      <li>Pure CSS and HTML</li>
+      <li>Socket.io</li>
+      <li>Peer.js</li>
+      <li>Node.js</li>
+      <li>Express.js</li>
+    </ul>
+    <h3>Notable NPM Modules Used</h3>
+    <ul>
+      <li>sanitize-html</li>
+      <li>nodemon</li>
+      <li>eslint</li>
+    </ul>
+    <h3>Using The Application</h3>
+    <p>Like you may be familiar to, double clicking the icons on the 'desktop' will open the various applicaitons.</p>
+    <h3>Current Apps</h3>
+    <ul>
+      <li>text chat</li>
+      <li>voice call</li>
+      <li>user list (see who's online)</li>
+      <li>DOOM - Game</li>
+      <li>The Oregon Trail - Game</li>
+    </ul>
+
+    <marquee><h3>Enjoy! Enjoy! Enjoy! Enjoy! Enjoy! Enjoy! Enjoy!</h3></marquee>
+
+    </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
     <script src="/js/draggable.js"></script>
     <script src="/js/socketFunctions.js"></script> 
     <script src="js/features.js"></script>
-    <script src="/js/voice.js"></script>
+    
   </body>
 </html>

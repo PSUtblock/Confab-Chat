@@ -2,13 +2,13 @@
 
 #voice {
   visibility: hidden;
-  height: 300px;
-  width: 200px;
+  height: 400px;
+  width: 300px;
   border-style: ridge;
   border-width: 2px;
   overflow: auto;
   position: absolute;
-  background-color:aquamarine;
+  background-color: var(--app-window-bk);
   top: 200px;
   left: 400px;
 }
@@ -26,54 +26,44 @@
   height: 10px;
 }
 
-
 #systemMessagesChat {
   font-size: 10px;
 }
 
 #muteBut {
-    border: none;
-    margin-bottom: 5px;
-    background-color: red;
-    color: whitesmoke;
-    font-style: italic;
-    position: relative;
-    left: 40%;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  margin-bottom: 5px;
+  background-color: red;
+  color: whitesmoke;
+  font-style: italic;
 }
 
 #userInVoice {
-    font-size: 13px;
-    margin-right: 20px;
-    line-height: 0;
-    display: inline-block;
+  font-size: 13px;
+  margin-right: 20px;
+  line-height: 0;
+  display: inline-block;
 }
 
-#inVoice{
-    font-size: 11px;
-    padding: 10px;
-    background-color:aquamarine;
-    
+#inVoice {
+  font-size: 11px;
+  padding: 10px;
+  min-height: 300px;
+  overflow-y: scroll;
 }
 
-.inVoice{
-    font-size: 15px;
-    padding: 2px;
-    max-height: 5px; 
-    margin-top: 10px;
-    margin-bottom: 5px;
+.inVoice {
+  font-size: 15px;
+  padding: 2px;
+  max-height: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
-.popup{
-    background-color: #ffffff;
-    width: 300px;
-    padding: 30px 40px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-    border-radius: 8px;
-    display: none;
-    text-align: center;
-  }
-
-
+#voicecontrols {
+  display: flex;
+  justify-content: center;
+}

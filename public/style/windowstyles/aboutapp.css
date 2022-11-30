@@ -1,0 +1,35 @@
+@import "../styles.css";
+
+#about {
+  visibility: hidden;
+  border-style: ridge;
+  border-width: 2px;
+  min-width: 400px;
+  min-height: 600px;
+  max-width: 400px;
+  overflow: hidden;
+  position: absolute;
+  background-color: var(--app-window-bk);
+
+  top: 100px;
+  left: 500px;
+}
+
+#aboutbody {
+  padding: 10px;
+  overflow-y: scroll;
+  max-height: 600px;
+}
+
+#aboutheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  cursor: grab;
+  color: black;
+  border-bottom-style: ridge;
+  border-bottom-width: 2px;
+  background-color: var(--app-accessory);
+  height: 10px;
+}

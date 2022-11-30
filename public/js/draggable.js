@@ -56,5 +56,6 @@ function dragElement(elmnt) {
 dragElement(document.getElementById("chat"));
 dragElement(document.getElementById("users"));
 dragElement(document.getElementById("voice"));
+dragElement(document.getElementById("about"));
 dragElement(document.getElementById("DOOM"));
 dragElement(document.getElementById("oregon"));

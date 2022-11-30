@@ -2,6 +2,7 @@
 :root {
   --app-bar-color: Ghostwhite;
   --app-window-bk: Gainsboro;
+  --app-child-bk: Whitesmoke;
   --app-accessory: Lightblue;
   --app-font-primary: Black;
 }
@@ -36,7 +37,8 @@ body {
 }
 
 /* Button Style */
-button {
+button,
+.namesubmit {
   border: none;
   background-color: var(--app-accessory);
   font-family: sysFont, "Courier New", Courier, monospace;
@@ -125,4 +127,39 @@ button {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.167);
   border-style: dotted;
+}
+
+#splash {
+  /* Full height */
+  height: 100%;
+  width: 100%;
+  /* Center and scale the image nicely */
+  position: absolute;
+  z-index: 1;
+}
+
+/* the initial login window */
+.popup {
+  background-color: var(--app-window-bk);
+  width: 300px;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-style: ridge;
+  display: none;
+  text-align: center;
+  z-index: 2;
+  animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+  from {
+    background-color: black;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

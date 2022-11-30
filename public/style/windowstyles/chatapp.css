@@ -26,6 +26,8 @@
 }
 
 #chatBox {
+  display: flex;
+  flex-direction: column-reverse;
   margin: auto;
   min-width: 400px;
   min-height: 400px;
@@ -34,6 +36,10 @@
   font-size: 12px;
   padding: 5px;
   margin-bottom: 50px;
+}
+
+#chatBox:nth-child(even) > div > p {
+  background-color: black;
 }
 
 #systemMessages {
