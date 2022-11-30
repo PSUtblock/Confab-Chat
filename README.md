@@ -52,7 +52,7 @@ Resources used to assist with building this application.
 [How to make a draggable Div](https://www.w3schools.com/howto/howto_js_draggable.asp)
 [Mozilla Webdocs](https://developer.mozilla.org/en-US/)
 
-##Version 1.0 (11/30/2022)
+## Version 1.0 (11/30/2022)
 
 - Implemented Text and voice chat applications
 - Implemented Active User List
@@ -61,7 +61,7 @@ Resources used to assist with building this application.
 - Added about content
 - created styles
 
-##How To Install
+## How To Install
 
 1. Ensure you are running the latest version of Node.js
 2. Download the entire application to whatever directory you plan to run the application
