@@ -145,8 +145,8 @@ const joinRoom = () => {
         type[0].innerHTML = `<marquee>User ${nickName} joined</marquee>`;
         type[0].style.visibility = "visible";
         type[0].style.opacity = 1;
-        console.log(joinSound);
-        joinSound.play();
+        //console.log(joinSound);
+        //joinSound.play();
         socket.emit("added-to-voice", peer.id);
         console.log(`New user: ${userId}`);
         setTimeout(connectNewUser, 1000, userId, nickName, mediaStream);
